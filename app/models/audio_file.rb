@@ -3,7 +3,8 @@ class AudioFile < ApplicationRecord
   mount_uploader :file, AudioUploader
 
   def filestack_upload
-    client = FilestackClient.new(Rails.application.credentials.api_key)
+    # client = FilestackClient.new(Rails.application.credentials.api_key)
+    client = FilestackClient.new(ENV['FILESTACK_KEY'])
     file = client.upload(filepath: Rails.root.to_s + "/public" + self.file.url)
     self.track.handle = file.handle
     self.track.url = file.url
