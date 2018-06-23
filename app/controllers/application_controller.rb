@@ -3,6 +3,8 @@ class ApplicationController < ActionController::API
 
   before_action :authenticate!
 
+  # temp
+
   def authenticate!
     logged_in?
   end
