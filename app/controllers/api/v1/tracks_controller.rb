@@ -6,8 +6,12 @@ class Api::V1::TracksController < ApplicationController
   def index
     @tracks = Track.all
 
-    destructured = @tracks.reverse.map do |track|
-      track.destructure
+    if @tracks.length > 0
+      destructured = @tracks.reverse.map do |track|
+        track.destructure
+      end
+    else
+      destructured = []
     end
 
     render json: destructured
