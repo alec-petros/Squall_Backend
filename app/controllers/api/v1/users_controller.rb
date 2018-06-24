@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authenticate!, only: [:create, :show, :stream]
+  skip_before_action :authenticate!, only: [:create, :show, :stream, :index]
   before_action :set_user, only: [:show, :update, :destroy, :favorites, :stream]
 
   # GET /users
