@@ -13,6 +13,7 @@ class Api::V1::TracksController < ApplicationController
     else
       destructured = []
     end
+    
 
     render json: destructured
   end
