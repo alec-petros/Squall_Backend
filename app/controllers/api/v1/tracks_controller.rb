@@ -1,8 +1,7 @@
 class Api::V1::TracksController < ApplicationController
   skip_before_action :authenticate!, only: [:index, :show, :play]
   before_action :set_track, only: [:show, :update, :destroy, :play]
-
-  # GET /tracks
+  # GET /tracks - render all tracks
   def index
     @tracks = Track.all
 
@@ -13,7 +12,6 @@ class Api::V1::TracksController < ApplicationController
     else
       destructured = []
     end
-    
 
     render json: destructured
   end
