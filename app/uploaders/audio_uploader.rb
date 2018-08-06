@@ -10,7 +10,7 @@ class AudioUploader < CarrierWave::Uploader::Base
   before :store, :remember_cache_id
   after :store, :delete_tmp_dir
 
-  process :convert => [{output_format: :mp3, output_options: {type: "mp3", rate: 44100, channels: 2, compression: 256}}]
+  # process :convert => [{output_format: :mp3, output_options: {type: "mp3", rate: 44100, channels: 2, compression: 256}}]
 
   # store! nil's the cache_id after it finishes so we need to remember it for deletion
   def remember_cache_id(new_file)
@@ -66,8 +66,8 @@ class AudioUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    "#{super.chomp(File.extname(super))}.mp3"
-  end
+  # def filename
+  #   "#{super.chomp(File.extname(super))}.mp3"
+  # end
 
 end
